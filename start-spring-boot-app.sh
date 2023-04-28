@@ -1,2 +1,4 @@
 #!/bin/bash
-nohup java -jar /opt/spring-petclinic/spring-petclinic-3.0.0-SNAPSHOT.jar > /dev/null 2>&1 &
+echo "Starting Spring Boot application..."
+nohup java -jar /opt/spring-petclinic/spring-petclinic-3.0.0-SNAPSHOT.jar > spring-boot.log 2>&1 &
+echo "Spring Boot application started."

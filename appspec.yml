@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: ./deploy/spring-petclinic-3.0.0-SNAPSHOT.jar
-    destination: /opt/spring-petclinic/
+    destination: /opt/spring-petclinic1/
 hooks:
   ApplicationStop:
     - location: stop-spring-boot-app.sh

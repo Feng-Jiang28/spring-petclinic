@@ -5,7 +5,7 @@ files:
     destination: /opt/spring-petclinic/
 hooks:
   ApplicationStop:
-    - location: ./deploy/stop-spring-boot-app.sh
+    - location: ./deploy/stop-spring-boot-app1.sh
       timeout: 30
   BeforeInstall:
     - location: ./deploy/install-dependencies.sh

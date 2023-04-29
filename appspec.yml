@@ -2,14 +2,14 @@ version: 0.0
 os: linux
 files:
   - source: ./deploy/spring-petclinic-3.0.0-SNAPSHOT.jar
-    destination: /opt/spring-petclinic1/
+    destination: /opt/spring-petclinic/
 hooks:
   ApplicationStop:
-    - location: stop-spring-boot-app.sh
+    - location: ./deploy/stop-spring-boot-app.sh
       timeout: 30
   BeforeInstall:
-    - location: install-dependencies.sh
+    - location: ./deploy/install-dependencies.sh
       timeout: 300
   ApplicationStart:
-    - location: start-spring-boot-app.sh
+    - location: ./deploy/start-spring-boot-app.sh
       timeout: 30

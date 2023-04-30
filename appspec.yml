@@ -1,15 +1,26 @@
 version: 0.0
 os: linux
 files:
-  - source: ./deploy/spring-petclinic-3.0.0-SNAPSHOT.jar
-    destination: /opt/spring-petclinic/
+  - source: /aws
+    destination: /usr/local/codedeployresources
 hooks:
   ApplicationStop:
-    - location: ./deploy/stop-spring-boot-app1.sh
-      timeout: 30
-  BeforeInstall:
-    - location: ./deploy/install-dependencies.sh
+    - location: aws/scripts/application-stop.sh
       timeout: 300
+      runas: root
+  BeforeInstall:
+    - location: aws/scripts/before-install.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: aws/scripts/after-install.sh
+      timeout: 300
+      runas: root
   ApplicationStart:
-    - location: ./deploy/start-spring-boot-app.sh
-      timeout: 30
+    - location: aws/scripts/application-start.sh
+      timeout: 300
+      runas: root
+  ValidateService:
+    - location: aws/scripts/validate-service.sh
+      timeout: 300
+      runas: root
